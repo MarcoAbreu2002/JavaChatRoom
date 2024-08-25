@@ -1,17 +1,49 @@
-# pa-chat-room
+# JavaChatRoom
 
-## The Project
+## Project Overview
 
-The proposed project, defined hereafter as "pa-chat-room", aims at creating a message server between several clients, messages that are to be transmitted via broadcasting.
+**JavaChatRoom** is a simple chat application designed to enable communication between multiple clients through a central server. The server broadcasts messages sent by any client to all other connected clients, ensuring that everyone stays updated in real-time.
 
-In general, the pa-chat-room should consist of a server, to which one or more clients can connect. The implementation must allow that when a client sends a message to the server, all clients connected to the server at that moment will receive that message.
+### Key Features
 
-The highest priority for this program (and therefore for the server) is to ensure data integrity and availability. Therefore, some implementation decisions should be made so that the server is always available. So the server should, for example, create child threads for all the tasks that could potentially block the main thread.
+- **Centralized Messaging**: All clients communicate via a central server that handles message broadcasting.
+- **Concurrent Handling**: The server manages multiple client connections simultaneously, creating separate threads for each client to ensure smooth communication and prevent the main thread from blocking.
+- **Data Integrity & Availability**: The server is designed with a focus on reliability, ensuring that it remains available and maintains the integrity of data at all times.
 
-The program has a server/server.log file, which should store all the interactions that happened during the execution: messages, client input and output, clients waiting for a slot and associated timestamps.
+### Server Logging
 
-All the settings you consider necessary for the server should be read from the server/server.config file shared in the base project repository. Any additional parameterization that each group finds necessary should be added to this configuration file.
+The server maintains a detailed log of all activities, stored in the `server/server.log` file. This log includes:
 
-RUNNING CLIENTS:
-After starting the server, for each client, we need to run Client.main. To get several client tabs open, we need to go to the client's file, and choose "Edit Configurations...", followed by "Modify options", and select "Allow multiple instances".
+- Messages sent and received.
+- Client connection and disconnection events.
+- Clients waiting for a connection slot.
+- Timestamps for each event.
 
+### Configuration
+
+All server settings are stored in the 'server/server.config' file. This configuration file should be modified to adjust any necessary server parameters. If your project requires additional settings, they should be included in this configuration file as well.
+
+### Instalation
+To install this simple application, just clone this repository to your local machine.
+
+   ```bash
+   git clone https://github.com/MarcoAbreu2002/JavaChatRoom.git
+   ```
+
+## Running the Application
+
+### Starting the Server
+
+1. Compile and run the server application.
+2. The server will start listening for incoming client connections.
+
+### Connecting Clients
+
+1. After starting the server, you can connect multiple clients by running the `Client.main` method.
+2. To open multiple client instances:
+   - Go to the client’s file in your IDE.
+   - Select "Edit Configurations...".
+   - Click "Modify options".
+   - Enable "Allow multiple instances".
+
+This setup will allow you to run multiple client tabs and simulate a chatroom environment with several participants.
